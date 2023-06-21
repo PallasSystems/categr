@@ -1,5 +1,8 @@
 package uk.pallas.systems.categr.rest;
 
+/**
+ * Utility class to hold error messages supplied by the Rest Controller.
+ */
 public final class CatgegoriesConstants {
 
   /** Error message to use when there isn't a categories object in the data store. */

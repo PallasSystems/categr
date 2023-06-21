@@ -3,6 +3,9 @@ package uk.pallas.systems.categr.services;
 import java.util.Collection;
 import uk.pallas.systems.categr.entities.v1.Category;
 
+/**
+ * Interface for various DAO implementations to provide as a service, so we can switch out the backend as we need to.
+ */
 public interface CategoriesDAOService {
 
   /**

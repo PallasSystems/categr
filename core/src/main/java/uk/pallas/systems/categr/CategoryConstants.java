@@ -1,5 +1,8 @@
 package uk.pallas.systems.categr;
 
+/**
+ * Utility class to hold Magic Numbers as part of DTO/Domain annotations.
+ */
 public final class CategoryConstants {
 
   /** The maximum size any string parameters should be limited to. */

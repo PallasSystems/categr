@@ -1,0 +1,48 @@
+version: "3.4"
+
+services:
+  categr:
+    container_name: categr
+    image: ${github_organisation:-pallassystems}/${github_repository_name:-categr}:${CATEGR_VERSION:-0.0.1-SNAPSHOT}
+    ports:
+      - 8085:8080
+    environment:
+      spring.datasource.url: "jdbc:postgresql://${POSTGRES_HOSTNAME:-database}:${POSTGRES_PORT:-5432}/${POSTGRES_DB:-categr}"
+      spring.datasource.username: ${POSTGRES_USER:-categrUsr}
+      spring.datasource.password: ${POSTGRES_PASSWORD:-ChangeMe}
+      spring.datasource.driver-class-name: "org.postgresql.Driver"
+      spring.jpa.database-platform: "org.hibernate.dialect.PostgreSQLDialect"
+      spring.jpa.hibernate.ddl-auto: "create-drop"
+      spring.jpa.show-sql: "false"
+      spring.jpa.defer-datasource-initialization: "true"
+      spring.sql.init.mode: "always"
+    networks:
+      - frontend
+      - backend
+    depends_on:
+      - database
+
+  database:
+    container_name: categr-db
+    image: postgres:${POSTGRES_VERSION:-13}-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-categr}
+      # You should definitely change the password in production
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-ChangeMe}
+      POSTGRES_USER: ${POSTGRES_USER:-categrUsr}
+    networks:
+      - backend
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data:rw
+
+networks:
+  frontend:
+    driver: bridge
+    internal: false
+  backend:
+    internal: true
+
+volumes:
+  db-data:

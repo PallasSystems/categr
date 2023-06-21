@@ -4,6 +4,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import uk.pallas.systems.categr.entities.v1.Category;
 
+/**
+ * A set of tests to confirm the category object is created and destroyed as needed.
+ */
 public class CategoryDTOTest {
 
   /** Public Constructor. */

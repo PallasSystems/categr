@@ -1,9 +1,7 @@
 # Categr
-![Apache License, Version 2.0, January 2004](https://img.shields.io/github/license/apache/maven.svg?label=License)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=pallassystems-categr&metric=sqale_rating&token=20ec5386fe426082f9d3914157ef0907c9dc4d49)](https://sonarcloud.io/summary/new_code?id=pallassystems-categr)[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=pallassystems-categr&metric=reliability_rating&token=20ec5386fe426082f9d3914157ef0907c9dc4d49)](https://sonarcloud.io/summary/new_code?id=pallassystems-categr)[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=pallassystems-categr&metric=coverage&token=20ec5386fe426082f9d3914157ef0907c9dc4d49)](https://sonarcloud.io/summary/new_code?id=pallassystems-categr)![Apache License, Version 2.0, January 2004](https://img.shields.io/github/license/apache/maven.svg?label=License)
 
-Categr is a Data Categories microservice, it holds a central repository of categories and what those categories of data mean. 
-
-The goal is to make it easier for users to find a find they need for data, or find data schemas related to a topic of analysis.
+Categr is repository of categories information. The goal is to ensure consistent category use accross applications which should in turn make it easier for users to find the data schemas and field definitions they need.
 
 ## Documentation
 
