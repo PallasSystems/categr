@@ -14,7 +14,7 @@ class CategoryDomainTest {
 
   @Test
   void testConstructor() {
-    final String name = "name";
+    final String name = "testConstructor";
     final String description = "CategoryDomainTest-testConstructor";
     final Category basic = new CategoryDomain(name, description);
     Assertions.assertEquals(name, basic.getName());
@@ -23,7 +23,7 @@ class CategoryDomainTest {
 
   @Test
   void testCopyConstructor() {
-    final String name = "name";
+    final String name = "testCopyConstructor";
     final String description = "CategoryDomainTest-testCopyConstructor";
     final Category basic = new CategoryDomain(name, description);
     final Category copy = new CategoryDomain(basic);
@@ -33,7 +33,7 @@ class CategoryDomainTest {
 
   @Test
   void testEquals() {
-    final String name = "name";
+    final String name = "testEquals";
     final String description = "CategoryDomainTest-testEquals";
     final Category basic = new CategoryDomain(name, description);
 
@@ -42,11 +42,22 @@ class CategoryDomainTest {
 
   @Test
   void testEqualsWithInvalid() {
-    final String name = "name";
+    final String name = "testEqualsWithInvalid";
     final String description = "CategoryDomainTest-testEqualsWithInvalid";
     final Category basic = new CategoryDomain(name, description);
 
     Assertions.assertNotEquals(null, basic);
     Assertions.assertNotEquals(basic, new CategoryDomain());
   }
+
+  @Test
+  void testHashCode() {
+    final String name = "testHashCode";
+    final String description = "CategoryDomainTest-testHashCode";
+    final Category basic = new CategoryDomain(name, description);
+
+    Assertions.assertEquals(basic.hashCode(), basic.hashCode());
+    Assertions.assertNotEquals(basic.hashCode(), new CategoryDomain().hashCode());
+  }
+
 }
