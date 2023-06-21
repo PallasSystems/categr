@@ -16,6 +16,37 @@
                 <directory>src/main/resources</directory>
             </resource>
         </resources>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>io.fabric8</groupId>
+                    <artifactId>docker-maven-plugin</artifactId>
+                    <configuration>
+                        <images>
+                            <image>
+                                <name>${github_organisation}/${github_repository_name}</name>
+                                <registry>ghcr.io</registry>
+                                <build>
+                                    <from>eclipse-temurin:17-jdk-alpine</from>
+                                    <maintainer>stephen.crocker@pallas.uk</maintainer>
+                                    <tags>
+                                        <tag>latest</tag>
+                                        <tag>${project.version}</tag>
+                                    </tags>
+                                    <ports>
+                                        <port>8080</port>
+                                    </ports>
+                                    <cmd>java -jar /maven/${project.artifactId}-${project.version}.jar</cmd>
+                                    <assembly>
+                                        <descriptorRef>artifact</descriptorRef>
+                                    </assembly>
+                                </build>
+                            </image>
+                        </images>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -38,13 +69,30 @@
                         </goals>
                     </execution>
                     <execution>
-                        <id>build-docker-image</id>
+                        <id>repackage-for-docker</id>
                         <goals>
-                            <goal>build-image</goal>
+                            <goal>repackage</goal>
                         </goals>
-                        <configuration>
-                            <imageName>categr:${project.version}</imageName>
-                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>build-docker-image</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>push-docker-image</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>push</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>
