@@ -27,7 +27,7 @@
                 <style>footer d-flex align-items-end mt-auto py-4 bg-dark text-light</style>
             </footer>
             <gitHub>
-                <projectId>PallasSystems/typr</projectId>
+                <projectId>PallasSystems/categr</projectId>
             </gitHub>
             <navbar>
                 <enabled>true</enabled>

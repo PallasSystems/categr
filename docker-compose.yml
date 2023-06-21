@@ -5,7 +5,7 @@ services:
     container_name: categr
     image: ${github_organisation:-pallassystems}/${github_repository_name:-categr}:${CATEGR_VERSION:-0.0.1-SNAPSHOT}
     ports:
-      - 8080:8080
+      - 8085:8080
     environment:
       spring.datasource.url: "jdbc:postgresql://${POSTGRES_HOSTNAME:-database}:${POSTGRES_PORT:-5432}/${POSTGRES_DB:-categr}"
       spring.datasource.username: ${POSTGRES_USER:-categrUsr}
