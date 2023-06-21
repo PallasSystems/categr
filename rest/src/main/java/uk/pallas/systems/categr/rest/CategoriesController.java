@@ -116,7 +116,7 @@ public class CategoriesController {
     }
 
     return cats.stream().filter(Objects::nonNull)
-      .map(value -> value.getName())
+      .map(Category::getName)
       .toList();
   }
 
