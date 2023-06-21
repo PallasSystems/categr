@@ -25,9 +25,6 @@ public class CategoriesDAO implements CategoriesDAOService {
   @Autowired
   private CategoryRepository dao;
 
-  /** Default Class Constructor. */
-  public CategoriesDAO() {}
-
   /**
    * Retrieves a handle to the Spring Data JPA DAO which allows us to perform database queries.
    * @return should never be null unless something has happened to spring.

@@ -85,7 +85,7 @@ public class CategoriesController {
 
     return cats.stream().filter(Objects::nonNull)
       .map(CategoryDTO::new)
-      .collect(Collectors.toList());
+      .toList();
   }
 
   /**
@@ -117,7 +117,7 @@ public class CategoriesController {
 
     return cats.stream().filter(Objects::nonNull)
       .map(value -> value.getName())
-      .collect(Collectors.toList());
+      .toList();
   }
 
   /**
