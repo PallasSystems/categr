@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang=""><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>CategoriesDAO.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">runnable</a> &gt; <a href="../index.html" class="el_bundle">hibernate</a> &gt; <a href="index.source.html" class="el_package">uk.pallas.systems.categr.services</a> &gt; <span class="el_source">CategoriesDAO.java</span></div><h1>CategoriesDAO.java</h1><pre class="source lang-java linenums">package uk.pallas.systems.categr.services;
+
+import jakarta.persistence.EntityNotFoundException;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Optional;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import uk.pallas.systems.categr.domain.CategoryRepository;
+import uk.pallas.systems.categr.domain.entities.v1.CategoryDomain;
+import uk.pallas.systems.categr.entities.v1.Category;
+
+/**
+ * Service which builds on CategoryRepository, this will retrieve objects from the database and process them to retrieve
+ * specific data for other components to make use of (e.g. extract all name fields).
+ */
+@Service
+<span class="nc" id="L20">public class CategoriesDAO implements CategoriesDAOService {</span>
+  /** Static Logger for the class. */
+<span class="nc" id="L22">  private static final Log LOGGER = LogFactory.getLog(CategoriesDAO.class);</span>
+
+  /** The Sprign Data JPA component.*/
+  @Autowired
+  private CategoryRepository dao;
+
+  /**
+   * Retrieves a handle to the Spring Data JPA DAO which allows us to perform database queries.
+   * @return should never be null unless something has happened to spring.
+   */
+  public CategoryRepository getDao() {
+<span class="nc" id="L33">    return this.dao;</span>
+  }
+
+  /**
+   * Sets a handle to the Spring Data JPA DAO which allows us to perform database queries.
+   * @param service handle to the Spring Data JPA DAO which allows us to perform database queries.
+   */
+  public void setDao(final CategoryRepository service) {
+<span class="nc" id="L41">    this.dao = service;</span>
+<span class="nc" id="L42">  }</span>
+
+  /**
+   * This will retrieve a specific CategoryDomain object using the primary key (e.g name).
+   *
+   * @param identifier the name of the Category to retrieve.
+   * @return null if the category could not be located.
+   */
+  @Override
+  public Category findByName(final String identifier) {
+<span class="nc" id="L52">    Category result = null;</span>
+
+<span class="nc bnc" id="L54" title="All 4 branches missed.">    if (null == identifier || identifier.isBlank()) {</span>
+<span class="nc bnc" id="L55" title="All 2 branches missed.">      if (LOGGER.isInfoEnabled()) {</span>
+<span class="nc" id="L56">        LOGGER.info(&quot;findByName - Invalid Name supplied&quot;);</span>
+      }
+    } else {
+<span class="nc" id="L59">      final CategoryRepository theDAO = this.getDao();</span>
+<span class="nc bnc" id="L60" title="All 2 branches missed.">      if (null == theDAO) {</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">        if (LOGGER.isErrorEnabled()) {</span>
+<span class="nc" id="L62">          LOGGER.error(&quot;findByName - DAO has broken when searching: &quot; + identifier);</span>
+        }
+      } else {
+<span class="nc" id="L65">        final Optional&lt;CategoryDomain&gt; queryResult = theDAO.findById(identifier);</span>
+<span class="nc bnc" id="L66" title="All 2 branches missed.">        if (queryResult.isPresent()) {</span>
+<span class="nc" id="L67">          result = queryResult.get();</span>
+<span class="nc bnc" id="L68" title="All 2 branches missed.">        } else if (LOGGER.isInfoEnabled()) {</span>
+<span class="nc" id="L69">          LOGGER.info(&quot;findByName - Unable to find entity with nane: &quot; + identifier);</span>
+        }
+      }
+    }
+
+<span class="nc" id="L74">    return result;</span>
+  }
+
+  /**
+   * This retrieves all categories from the database and returns them.
+   * @return an empty list if there is no category data.
+   */
+  @Override
+  public Collection&lt;Category&gt; findAll() {
+<span class="nc" id="L83">    final Collection&lt;Category&gt; results = new HashSet&lt;&gt;();</span>
+
+<span class="nc" id="L85">    final CategoryRepository theDAO = this.getDao();</span>
+<span class="nc bnc" id="L86" title="All 2 branches missed.">    if (null == theDAO) {</span>
+<span class="nc bnc" id="L87" title="All 2 branches missed.">      if (LOGGER.isErrorEnabled()) {</span>
+<span class="nc" id="L88">        LOGGER.error(&quot;findAll - DAO has broken when trying to retrieve all categories&quot;);</span>
+      }
+    } else {
+      try {
+<span class="nc" id="L92">        results.addAll(theDAO.findAll());</span>
+<span class="nc" id="L93">      } catch (final EntityNotFoundException exception) {</span>
+<span class="nc bnc" id="L94" title="All 2 branches missed.">        if (LOGGER.isInfoEnabled()) {</span>
+<span class="nc" id="L95">          LOGGER.info(&quot;findAll - Unable to find any entities in the data store&quot;);</span>
+        }
+<span class="nc" id="L97">      }</span>
+    }
+
+<span class="nc" id="L100">    return results;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>

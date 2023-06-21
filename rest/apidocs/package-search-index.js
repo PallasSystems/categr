@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"uk.pallas.systems.categr.rest"},{"l":"uk.pallas.systems.categr.rest.entities.v1"}];updateSearchResults();

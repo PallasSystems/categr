@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="generator" content="#generatedBy()" />
+    <title>Categr – File Activity Report</title>
+    <link rel="icon" href="./img/favicons/favicon.ico">
+    <!-- CSS Stylesheets, site.css is included so downstream projects can override them as appropriate. -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/bootstrap-icons.css" />
+    <link rel="stylesheet" href="./css/maven-base.css" />
+    <link rel="stylesheet" href="./css/prettify.css" />
+    <link rel="stylesheet" href="./css/maven-theme.css" />
+    <link rel="stylesheet" href="./css/site.css" />
+  </head>
+  <body class="d-flex flex-column h-100">
+
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div id="projectBarContainer" class="container-fluid">
+<a href="https://pallassystems.github.io/typr/" id="navbarIconLink" title="SUPER POM to simplify development of Maven based projects for Freeman." class="navbar-brand text-wrap ps-2"><img id="navbarIconImg" src="./images/pallas-image.png"  alt="SUPER POM to simplify development of Maven based projects for Freeman."  title="Navbar Brand Icon" width="32px" height="32px" /> Categr
+</a>          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div id="navbarCollapse" class="collapse navbar-collapse justify-content-end">
+            <ul id="navbarList" class="navbar-nav">
+             <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="#" id="OverviewMenuDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Overview <b class="caret"></b></a>
+               <ul class="dropdown-menu" aria-labelledby="OverviewMenuDropdown">
+                 <li class="nav-item dropdown-item" id="WelcomeDropdown">
+                   <a href="overview/welcome.html" id="WelcomeDropdownLink" title="Welcome"  class="dropdown-item" >Welcome</a>                 </li>
+                 <li class="nav-item dropdown-item" id="Getting StartedDropdown">
+                   <a href="overview/getting_started.html" id="Getting StartedDropdownLink" title="Getting Started"  class="dropdown-item" >Getting Started</a>                 </li>
+                 <li class="nav-item dropdown-item" id="FAQDropdown">
+                   <a href="overview/faq.html" id="FAQDropdownLink" title="FAQ"  class="dropdown-item" >FAQ</a>                 </li>
+               </ul>
+             </li>
+             <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="#" id="ContributingMenuDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Contributing <b class="caret"></b></a>
+               <ul class="dropdown-menu" aria-labelledby="ContributingMenuDropdown">
+                 <li class="nav-item dropdown-item dropdown-submenu">
+                   <a href="index.html" id="Developer GuidesDropdownLink" title="Developer Guides"  class="dropdown-item" >Developer Guides</a>
+                   <ul id="ContributingMenuSubMenuDropdown" class="dropdown-menu submenu">
+                     <li class="nav-item dropdown-item">
+                       <a href="developers/technical/building_project.html" id="Building TyprDropdownLink" title="Building Typr"  class="dropdown-item" >Building Typr</a>                     </li>
+                     <li class="nav-item dropdown-item">
+                       <a href="developers/technical/development_workflow.html" id="Development ProcessDropdownLink" title="Development Process"  class="dropdown-item" >Development Process</a>                     </li>
+                   </ul>
+                 </li>
+                 <li class="nav-item dropdown-item dropdown-submenu">
+                   <a href="index.html" id="Maintainer GuidesDropdownLink" title="Maintainer Guides"  class="dropdown-item" >Maintainer Guides</a>
+                   <ul id="ContributingMenuSubMenuDropdown" class="dropdown-menu submenu">
+                     <li class="nav-item dropdown-item">
+                       <a href="developers/technical/release_project.html" id="Releasing TyprDropdownLink" title="Releasing Typr"  class="dropdown-item" >Releasing Typr</a>                     </li>
+                     <li class="nav-item dropdown-item">
+                       <a href="developers/technical/release_project.html" id="Release ManagementDropdownLink" title="Release Management"  class="dropdown-item" >Release Management</a>                     </li>
+                   </ul>
+                 </li>
+               </ul>
+             </li>
+             <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="#" id="Project DocumentationMenuDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Project Documentation <b class="caret"></b></a>
+               <ul class="dropdown-menu" aria-labelledby="Project DocumentationMenuDropdown">
+                 <li class="nav-item dropdown-item dropdown-submenu">
+                   <a href="project-info.html" id="Project InformationDropdownLink" title="Project Information"  class="dropdown-item" >Project Information</a>
+                   <ul id="Project DocumentationMenuSubMenuDropdown" class="dropdown-menu submenu">
+                     <li class="nav-item dropdown-item">
+                       <a href="ci-management.html" id="CI ManagementDropdownLink" title="CI Management"  class="dropdown-item" >CI Management</a>                     </li>
+                     <li class="nav-item dropdown-item">
+                       <a href="dependency-convergence.html" id="Dependency ConvergenceDropdownLink" title="Dependency Convergence"  class="dropdown-item" >Dependency Convergence</a>                     </li>
+                     <li class="nav-item dropdown-item">
+                       <a href="dependency-info.html" id="Dependency InformationDropdownLink" title="Dependency Information"  class="dropdown-item" >Dependency Information</a>                     </li>
+                     <li class="nav-item dropdown-item">
+                       <a href="dependency-management.html" id="Dependency ManagementDropdownLink" title="Dependency Management"  class="dropdown-item" >Dependency Management</a>                     </li>
+                     <li class="nav-item dropdown-item">
+                       <a href="distribution-management.html" id="Distribution ManagementDropdownLink" title="Distribution Management"  class="dropdown-item" >Distribution Management</a>                     </li>
+                     <li class="nav-item dropdown-item">
+                       <a href="index.html" id="AboutDropdownLink" title="About"  class="dropdown-item" >About</a>                     </li>
+                     <li class="nav-item dropdown-item">
+                       <a href="issue-management.html" id="Issue ManagementDropdownLink" title="Issue Management"  class="dropdown-item" >Issue Management</a>                     </li>
+                     <li class="nav-item dropdown-item">
+                       <a href="licenses.html" id="LicensesDropdownLink" title="Licenses"  class="dropdown-item" >Licenses</a>                     </li>
+                     <li class="nav-item dropdown-item">
+                       <a href="modules.html" id="Project ModulesDropdownLink" title="Project Modules"  class="dropdown-item" >Project Modules</a>                     </li>
+                     <li class="nav-item dropdown-item">
+                       <a href="plugin-management.html" id="Plugin ManagementDropdownLink" title="Plugin Management"  class="dropdown-item" >Plugin Management</a>                     </li>
+                     <li class="nav-item dropdown-item">
+                       <a href="plugins.html" id="PluginsDropdownLink" title="Plugins"  class="dropdown-item" >Plugins</a>                     </li>
+                     <li class="nav-item dropdown-item">
+                       <a href="scm.html" id="Source Code ManagementDropdownLink" title="Source Code Management"  class="dropdown-item" >Source Code Management</a>                     </li>
+                     <li class="nav-item dropdown-item">
+                       <a href="summary.html" id="SummaryDropdownLink" title="Summary"  class="dropdown-item" >Summary</a>                     </li>
+                     <li class="nav-item dropdown-item">
+                       <a href="team.html" id="TeamDropdownLink" title="Team"  class="dropdown-item" >Team</a>                     </li>
+                   </ul>
+                 </li>
+                 <li class="nav-item dropdown-item dropdown-submenu">
+                   <a href="project-reports.html" id="Project ReportsDropdownLink" title="Project Reports"  class="dropdown-item" >Project Reports</a>
+                   <ul id="Project DocumentationMenuSubMenuDropdown" class="dropdown-menu submenu">
+                     <li class="nav-item dropdown-item">
+                       <a href="checkstyle-aggregate.html" id="CheckstyleDropdownLink" title="Checkstyle"  class="dropdown-item" >Checkstyle</a>                     </li>
+                     <li class="nav-item dropdown-item">
+                       <a href="cpd.html" id="CPDDropdownLink" title="CPD"  class="dropdown-item" >CPD</a>                     </li>
+                     <li class="nav-item dropdown-item">
+                       <a href="pmd.html" id="PMDDropdownLink" title="PMD"  class="dropdown-item" >PMD</a>                     </li>
+                     <li class="nav-item dropdown-item">
+                       <a href="jacoco-aggregate/index.html" id="JaCoCo AggregateDropdownLink" title="JaCoCo Aggregate"  class="dropdown-item" >JaCoCo Aggregate</a>                     </li>
+                     <li class="nav-item dropdown-item">
+                       <a href="changelog.html" id="Change LogDropdownLink" title="Change Log"  class="dropdown-item" >Change Log</a>                     </li>
+                     <li class="nav-item dropdown-item">
+                       <a title="File Activity" class="dropdown-item">File Activity</a>                     </li>
+                     <li class="nav-item dropdown-item">
+                       <a href="dev-activity.html" id="Developer ActivityDropdownLink" title="Developer Activity"  class="dropdown-item" >Developer Activity</a>                     </li>
+                     <li class="nav-item dropdown-item">
+                       <a href="xref/index.html" id="Source XrefDropdownLink" title="Source Xref"  class="dropdown-item" >Source Xref</a>                     </li>
+                     <li class="nav-item dropdown-item">
+                       <a href="xref-test/index.html" id="Test Source XrefDropdownLink" title="Test Source Xref"  class="dropdown-item" >Test Source Xref</a>                     </li>
+                     <li class="nav-item dropdown-item">
+                       <a href="surefire-report.html" id="Surefire ReportDropdownLink" title="Surefire Report"  class="dropdown-item" >Surefire Report</a>                     </li>
+                   </ul>
+                 </li>
+               </ul>
+             </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="flex-shrink-0" role="main">
+      <div class="container mt-3 rounded">
+<section>
+<h1>File Activity Report</h1><section>
+<h2>Changes between 05-22-2023 and 06-22-2023</h2>
+<p>Total commits: 1<br />Total number of files changed: 37</p>
+<tr class="a">
+<th>Filename</th>
+<th>Number of Times Changed</th></tr>
+<tr class="b">
+<td><a class="externalLink" href="https://github.com/PallasSystems/typr/.github/maven_settings.xml">.github/<b>maven_settings.xml</b></a> </td>
+<td>1</td></tr>
+<tr class="a">
+<td><a class="externalLink" href="https://github.com/PallasSystems/typr/.github/workflows/build_verification.yml">.github/workflows/<b>build_verification.yml</b></a> </td>
+<td>1</td></tr>
+<tr class="b">
+<td><a class="externalLink" href="https://github.com/PallasSystems/typr/.github/workflows/release.yml">.github/workflows/<b>release.yml</b></a> </td>
+<td>1</td></tr>
+<tr class="a">
+<td><a class="externalLink" href="https://github.com/PallasSystems/typr/.github/workflows/update_dependencies.yml">.github/workflows/<b>update_dependencies.yml</b></a> </td>
+<td>1</td></tr>
+<tr class="b">
+<td><a class="externalLink" href="https://github.com/PallasSystems/typr/.gitignore"><b>.gitignore</b></a> </td>
+<td>1</td></tr>
+<tr class="a">
+<td><a class="externalLink" href="https://github.com/PallasSystems/typr/LICENSE"><b>LICENSE</b></a> </td>
+<td>1</td></tr>
+<tr class="b">
+<td><a class="externalLink" href="https://github.com/PallasSystems/typr/README.md"><b>README.md</b></a> </td>
+<td>1</td></tr>
+<tr class="a">
+<td><a class="externalLink" href="https://github.com/PallasSystems/typr/core/pom.xml">core/<b>pom.xml</b></a> </td>
+<td>1</td></tr>
+<tr class="b">
+<td><a class="externalLink" href="https://github.com/PallasSystems/typr/core/src/main/java/uk/pallas/systems/categr/CategoryConstants.java">core/src/main/java/uk/pallas/systems/categr/<b>CategoryConstants.java</b></a> </td>
+<td>1</td></tr>
+<tr class="a">
+<td><a class="externalLink" href="https://github.com/PallasSystems/typr/core/src/main/java/uk/pallas/systems/categr/entities/v1/Category.java">core/src/main/java/uk/pallas/systems/categr/entities/v1/<b>Category.java</b></a> </td>
+<td>1</td></tr>
+<tr class="b">
+<td><a class="externalLink" href="https://github.com/PallasSystems/typr/core/src/main/java/uk/pallas/systems/categr/services/CategoriesDAOService.java">core/src/main/java/uk/pallas/systems/categr/services/<b>CategoriesDAOService.java</b></a> </td>
+<td>1</td></tr>
+<tr class="a">
+<td><a class="externalLink" href="https://github.com/PallasSystems/typr/docker-compose.yml"><b>docker-compose.yml</b></a> </td>
+<td>1</td></tr>
+<tr class="b">
+<td><a class="externalLink" href="https://github.com/PallasSystems/typr/docs/documentation/developer/index.md">docs/documentation/developer/<b>index.md</b></a> </td>
+<td>1</td></tr>
+<tr class="a">
+<td><a class="externalLink" href="https://github.com/PallasSystems/typr/docs/documentation/users/index.md">docs/documentation/users/<b>index.md</b></a> </td>
+<td>1</td></tr>
+<tr class="b">
+<td><a class="externalLink" href="https://github.com/PallasSystems/typr/docs/index.md">docs/<b>index.md</b></a> </td>
+<td>1</td></tr>
+<tr class="a">
+<td><a class="externalLink" href="https://github.com/PallasSystems/typr/docs/overview/faq.md">docs/overview/<b>faq.md</b></a> </td>
+<td>1</td></tr>
+<tr class="b">
+<td><a class="externalLink" href="https://github.com/PallasSystems/typr/docs/overview/getting_started.md">docs/overview/<b>getting_started.md</b></a> </td>
+<td>1</td></tr>
+<tr class="a">
+<td><a class="externalLink" href="https://github.com/PallasSystems/typr/docs/overview/welcome.md">docs/overview/<b>welcome.md</b></a> </td>
+<td>1</td></tr>
+<tr class="b">
+<td><a class="externalLink" href="https://github.com/PallasSystems/typr/hibernate/pom.xml">hibernate/<b>pom.xml</b></a> </td>
+<td>1</td></tr>
+<tr class="a">
+<td><a class="externalLink" href="https://github.com/PallasSystems/typr/hibernate/src/main/java/uk/pallas/systems/categr/domain/CategoryRepository.java">hibernate/src/main/java/uk/pallas/systems/categr/domain/<b>CategoryRepository.java</b></a> </td>
+<td>1</td></tr>
+<tr class="b">
+<td><a class="externalLink" href="https://github.com/PallasSystems/typr/hibernate/src/main/java/uk/pallas/systems/categr/domain/entities/v1/CategoryDomain.java">hibernate/src/main/java/uk/pallas/systems/categr/domain/entities/v1/<b>CategoryDomain.java</b></a> </td>
+<td>1</td></tr>
+<tr class="a">
+<td><a class="externalLink" href="https://github.com/PallasSystems/typr/hibernate/src/main/java/uk/pallas/systems/categr/services/CategoriesDAO.java">hibernate/src/main/java/uk/pallas/systems/categr/services/<b>CategoriesDAO.java</b></a> </td>
+<td>1</td></tr>
+<tr class="b">
+<td><a class="externalLink" href="https://github.com/PallasSystems/typr/hibernate/src/main/resources/data.sql">hibernate/src/main/resources/<b>data.sql</b></a> </td>
+<td>1</td></tr>
+<tr class="a">
+<td><a class="externalLink" href="https://github.com/PallasSystems/typr/hibernate/src/test/java/uk/pallas/systems/categr/domain/entities/v1/CategoryDomainTest.java">hibernate/src/test/java/uk/pallas/systems/categr/domain/entities/v1/<b>CategoryDomainTest.java</b></a> </td>
+<td>1</td></tr>
+<tr class="b">
+<td><a class="externalLink" href="https://github.com/PallasSystems/typr/pom.xml"><b>pom.xml</b></a> </td>
+<td>1</td></tr>
+<tr class="a">
+<td><a class="externalLink" href="https://github.com/PallasSystems/typr/rest/pom.xml">rest/<b>pom.xml</b></a> </td>
+<td>1</td></tr>
+<tr class="b">
+<td><a class="externalLink" href="https://github.com/PallasSystems/typr/rest/src/main/java/uk/pallas/systems/categr/rest/CategoriesController.java">rest/src/main/java/uk/pallas/systems/categr/rest/<b>CategoriesController.java</b></a> </td>
+<td>1</td></tr>
+<tr class="a">
+<td><a class="externalLink" href="https://github.com/PallasSystems/typr/rest/src/main/java/uk/pallas/systems/categr/rest/CatgegoriesConstants.java">rest/src/main/java/uk/pallas/systems/categr/rest/<b>CatgegoriesConstants.java</b></a> </td>
+<td>1</td></tr>
+<tr class="b">
+<td><a class="externalLink" href="https://github.com/PallasSystems/typr/rest/src/main/java/uk/pallas/systems/categr/rest/entities/v1/CategoryDTO.java">rest/src/main/java/uk/pallas/systems/categr/rest/entities/v1/<b>CategoryDTO.java</b></a> </td>
+<td>1</td></tr>
+<tr class="a">
+<td><a class="externalLink" href="https://github.com/PallasSystems/typr/rest/src/test/java/uk/pallas/systems/categr/rest/entities/v1/CategoryDTOTest.java">rest/src/test/java/uk/pallas/systems/categr/rest/entities/v1/<b>CategoryDTOTest.java</b></a> </td>
+<td>1</td></tr>
+<tr class="b">
+<td><a class="externalLink" href="https://github.com/PallasSystems/typr/runnable/README.md">runnable/<b>README.md</b></a> </td>
+<td>1</td></tr>
+<tr class="a">
+<td><a class="externalLink" href="https://github.com/PallasSystems/typr/runnable/pom.xml">runnable/<b>pom.xml</b></a> </td>
+<td>1</td></tr>
+<tr class="b">
+<td><a class="externalLink" href="https://github.com/PallasSystems/typr/runnable/src/main/java/uk/pallas/systems/categr/runnable/Application.java">runnable/src/main/java/uk/pallas/systems/categr/runnable/<b>Application.java</b></a> </td>
+<td>1</td></tr>
+<tr class="a">
+<td><a class="externalLink" href="https://github.com/PallasSystems/typr/runnable/src/main/resources/application.properties">runnable/src/main/resources/<b>application.properties</b></a> </td>
+<td>1</td></tr>
+<tr class="b">
+<td><a class="externalLink" href="https://github.com/PallasSystems/typr/runnable/src/test/resources/application.properties">runnable/src/test/resources/<b>application.properties</b></a> </td>
+<td>1</td></tr>
+<tr class="a">
+<td><a class="externalLink" href="https://github.com/PallasSystems/typr/src/site/index.md">src/site/<b>index.md</b></a> </td>
+<td>1</td></tr>
+<tr class="b">
+<td><a class="externalLink" href="https://github.com/PallasSystems/typr/src/site/site.xml">src/site/<b>site.xml</b></a> </td>
+<td>1</td></tr></table></section></section>
+      </div>
+    </main>
+
+  <footer class="footer d-flex align-items-end mt-auto py-4 bg-dark text-light">
+    <div class="container-fluid text-md-left">
+        <div class="row">
+          <div id="ContactDetailsDiv" class="col-md-5 col-lg-4 col-xl-4 mx-auto mb-md-0">
+            <h5 class="text-uppercase fw-bold">Contact</h5>
+            <a id="bootstrapSkin.contact.emailLinkContact" href="mailto:${orgEmail}" class=" my-0"><i id="bootstrapSkin.contact.emailLinkIcon" class=" bi-envelope px-1 px-1"></i>info@pallas.uk</a>
+            <p id="bootstrapSkin.contact.mobileContact" class=" my-0"><i id="bootstrapSkin.contact.mobileIcon" class=" bi-phone px-1 px-1"></i>+44 7861 530488</p>
+           </div>
+          <div id="socialMediaDiv" class="col-md-5 col-lg-4 col-xl-4 mx-auto mb-md-0">
+
+            <div>Get connected with us on social networks</div>
+            <div>
+            <a id="bootstrapSkin.facebook.groupIdLinkContact" href="https://www.facebook.com/groups/350073883439443" class=" p-1"><i id="bootstrapSkin.facebook.groupIdLinkIcon" class=" bi-facebook px-1"></i></a>
+            <a id="bootstrapSkin.twitter.accountIdLinkContact" href="https://twitter.com/PallasUK" class=" p-1"><i id="bootstrapSkin.twitter.accountIdLinkIcon" class=" bi-twitter px-1"></i></a>
+            <a id="bootstrapSkin.gitHub.projectIdLinkContact" href="https://github.com/${gitHubOrg}/${gitHubRepo}" class=" p-1"><i id="bootstrapSkin.gitHub.projectIdLinkIcon" class=" bi-github px-1"></i></a>
+            </div>
+            <div id="copyrightDiv" class="pt-3">
+              <p>&#169;
+      2022&#x2013;2023
+<a href="https://www.pallas.uk">Pallas Systems</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./js/jquery.slim.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/prettify.js"></script>
+
+    <!-- Used to enable the code-prettify running on the view. -->
+    <script>
+        addEventListener('load', function(event) { PR.prettyPrint(); }, false);
+    </script>
+  </body>

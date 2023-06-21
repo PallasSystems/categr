@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"uk.pallas.systems.categr.services","l":"CategoriesDAO"},{"p":"uk.pallas.systems.categr.domain.entities.v1","l":"CategoryDomain"},{"p":"uk.pallas.systems.categr.domain","l":"CategoryRepository"}];updateSearchResults();

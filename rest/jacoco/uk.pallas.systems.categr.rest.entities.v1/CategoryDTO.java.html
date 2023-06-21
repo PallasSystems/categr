@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang=""><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CategoryDTO.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">rest</a> &gt; <a href="index.source.html" class="el_package">uk.pallas.systems.categr.rest.entities.v1</a> &gt; <span class="el_source">CategoryDTO.java</span></div><h1>CategoryDTO.java</h1><pre class="source lang-java linenums">package uk.pallas.systems.categr.rest.entities.v1;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.constraints.Size;
+import java.util.Objects;
+import uk.pallas.systems.categr.CategoryConstants;
+import uk.pallas.systems.categr.entities.v1.Category;
+
+/**
+ *
+ */
+@Schema(description = &quot;Categories are ways of loosely grouping information fields&quot;)
+public class CategoryDTO implements Category {
+
+  /**
+   * Detailed description of the field definition.
+   */
+  @Schema(description = &quot;Detailed description of the field definition.&quot;, example = &quot;Field represents a good Graph Edge&quot;)
+  @Size(max = CategoryConstants.MAX_DESCRIPTION_LENGTH)
+  private String description;
+
+  /**
+   * Name of the field definition e.g. post code, uk mobile.
+   */
+  @Schema(description = &quot;Name of the category, this is&quot;, example = &quot;Edge&quot;)
+  @Size(max = CategoryConstants.MAX_NAME_LENGTH)
+  private String name;
+
+  /**
+   * Default Class Constructor, sets values to null.
+   */
+  public CategoryDTO() {
+<span class="fc" id="L33">    this(null);</span>
+<span class="fc" id="L34">  }</span>
+
+  /**
+   * Class Copy Constructor.
+   * @param data the object to be copied into this newly created Category object.
+   */
+  public CategoryDTO(final Category data) {
+<span class="fc bfc" id="L41" title="All 4 branches covered.">    this(null == data ? null : data.getName(), null == data ? null : data.getDescription());</span>
+<span class="fc" id="L42">  }</span>
+
+  /**
+   * Class Constructor which lets us set all fields within the object.
+   * @param identifier Name of the field definition e.g. post code, uk mobile.
+   * @param desc Detailed description of the field definition.
+   */
+<span class="fc" id="L49">  public CategoryDTO(final String identifier, final String desc) {</span>
+<span class="fc" id="L50">    this.name = identifier;</span>
+<span class="fc" id="L51">    this.description = desc;</span>
+<span class="fc" id="L52">  }</span>
+
+  /**
+   * Compares the supplied object to this one, it checks the supplied object is a Category.
+   *
+   * @param toCompare the object to compare (can be null or a child class, etc..)
+   * @return false if the name and description fields in a category
+   */
+  @Override
+  public boolean equals(final Object toCompare) {
+
+    final boolean result;
+<span class="fc bfc" id="L64" title="All 2 branches covered.">    if (this == toCompare) {</span>
+<span class="fc" id="L65">      result = true;</span>
+<span class="pc bpc" id="L66" title="1 of 2 branches missed.">    } else if (toCompare instanceof Category that) {</span>
+<span class="fc bfc" id="L67" title="All 2 branches covered.">      result = Objects.equals(this.getName(), that.getName())</span>
+<span class="pc bpc" id="L68" title="1 of 2 branches missed.">        &amp;&amp; Objects.equals(this.getDescription(), that.getDescription());</span>
+    } else {
+<span class="nc" id="L70">      result = false;</span>
+    }
+
+<span class="fc" id="L73">    return result;</span>
+  }
+
+  /**
+   * Generates a Unique hashcode for the Category class.
+   *
+   * @return a valid integer representation of this object,
+   */
+  @Override
+  public int hashCode() {
+<span class="nc" id="L83">    return Objects.hash(this.getName(), this.getDescription());</span>
+  }
+
+  /**
+   * {@inheritDoc}
+   *
+   * @return non null value (if field definition is valid).
+   */
+  @Override
+  public String getName() {
+<span class="fc" id="L93">    return this.name;</span>
+  }
+
+  /**
+   * {@inheritDoc}
+   *
+   * @param identifier the new name for the field definition value
+   */
+  @Override
+  public void setName(final String identifier) {
+<span class="nc" id="L103">    this.name = identifier;</span>
+<span class="nc" id="L104">  }</span>
+
+  /**
+   * {@inheritDoc}
+   *
+   * @return a hopefull long valid string (null is possible).
+   */
+  @Override
+  public String getDescription() {
+<span class="fc" id="L113">    return this.description;</span>
+  }
+
+  /**
+   * {@inheritDoc}
+   *
+   * @param detailedDescription the description to attach (null is ok)
+   */
+  @Override
+  public void setDescription(final String detailedDescription) {
+<span class="nc" id="L123">    this.description = detailedDescription;</span>
+<span class="nc" id="L124">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>

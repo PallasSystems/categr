@@ -1,0 +1,5 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+runnable/hibernate,uk.pallas.systems.categr.domain.entities.v1,CategoryDomain,10,81,2,10,5,17,4,11,2,7
+runnable/hibernate,uk.pallas.systems.categr.services,CategoriesDAO,96,0,20,0,30,0,16,0,6,0
+runnable/rest,uk.pallas.systems.categr.rest,CategoriesController,89,0,14,0,23,0,13,0,6,0
+runnable/rest,uk.pallas.systems.categr.rest.entities.v1,CategoryDTO,24,67,2,10,6,16,5,10,3,6

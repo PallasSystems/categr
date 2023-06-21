@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"uk.pallas.systems.categr.rest.entities.v1","c":"CategoryDTOTest","l":"CategoryDTOTest()","u":"%3Cinit%3E()"}];updateSearchResults();

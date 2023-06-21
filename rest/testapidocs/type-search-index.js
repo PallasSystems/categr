@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"uk.pallas.systems.categr.rest.entities.v1","l":"CategoryDTOTest"}];updateSearchResults();

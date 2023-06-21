@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"uk.pallas.systems.categr.runnable","l":"Application"}];updateSearchResults();
