@@ -4,7 +4,7 @@
     <parent>
         <groupId>uk.pallas.systems</groupId>
         <artifactId>parent</artifactId>
-        <version>0.2.2</version>
+        <version>1.0.0</version>
     </parent>
     <groupId>uk.pallas.systems.categr</groupId>
     <artifactId>parent</artifactId>
@@ -38,19 +38,19 @@
         <!-- Plugin dependencies. -->
         <org.springdoc.maven.plugin.version>1.4</org.springdoc.maven.plugin.version>
         <com.github.therapi.version>0.15.0</com.github.therapi.version>
-        <docker-maven-plugin.version>0.43.0</docker-maven-plugin.version>
+        <docker-maven-plugin.version>0.43.4</docker-maven-plugin.version>
         <!-- Dependencies. -->
-        <org.springframework.boot.version>3.0.6</org.springframework.boot.version>
-        <org.springdoc.version>2.1.0</org.springdoc.version>
+        <org.springframework.boot.version>3.2.1</org.springframework.boot.version>
+        <org.springdoc.version>2.3.0</org.springdoc.version>
         <com.neovisionaries.version>1.29</com.neovisionaries.version>
         <si.uom.version>2.1</si.uom.version>
         <javax.measure.version>2.2</javax.measure.version>
         <javax.servlet.version>4.0.1</javax.servlet.version>
         <!-- Database dependencies. -->
-        <org.postgresql.version>42.6.0</org.postgresql.version>
-        <org.hsqldb.version>2.7.1</org.hsqldb.version>
+        <org.postgresql.version>42.7.1</org.postgresql.version>
+        <org.hsqldb.version>2.7.2</org.hsqldb.version>
         <!-- Test Dependencies. -->
-        <org.mockito.version>5.3.1</org.mockito.version>
+        <org.mockito.version>5.8.0</org.mockito.version>
     </properties>
 
     <build>
