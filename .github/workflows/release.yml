@@ -1,73 +1,12 @@
-name: Release Maven project
+name: Release NPM project
 
 on:
   create:
     branches:
-      - release/*
+      - 'release/*'
   workflow_dispatch:
+
 jobs:
-  release:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out Source Code
-        uses: actions/checkout@v2.5.0
-
-      - name: Set up JDK 17
-        uses: actions/setup-java@v3
-        with:
-          cache: 'maven'
-          distribution: 'temurin'
-          java-version: 17
-
-      - name: Configure GPG key settings
-        uses: crazy-max/ghaction-import-gpg@v5
-        with:
-          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
-          passphrase: ${{ secrets.GPG_PRIVATE_KEY_PASSPHRASE }}
-          git_user_signingkey: true
-          git_config_global: true
-          git_committer_name: "pallasCI"
-          git_committer_email: "continuous.integration@pallas.uk"
-          git_commit_gpgsign: true
-          git_push_gpgsign: false
-          git_tag_gpgsign: true
-
-      - name: Extract branch name
-        id: extract_branch
-        if: ${{ contains(github.ref, 'refs/heads/release') }}
-        shell: bash
-        run: echo "BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/} | tr / - | sed 's/release-*//')" >> $GITHUB_ENV
-
-      - name: Prepare Release with Maven
-        if: ${{ contains(github.ref, 'refs/heads/release') }}
-        run: mvn --batch-mode --settings .github/maven_settings.xml release:prepare -DreleaseVersion=${{ env.BRANCH_NAME }} -Dskin.version=${{ env.BRANCH_NAME }} -Dgoals=clean,deploy,site,site:stage,scm-publish:publish-scm
-        env:
-          GITHUB_USER: ${{ secrets.SCM_USER }}
-          GITHUB_TOKEN: ${{ secrets.SCM_TOKEN }}
-          GPG_KEY_ID: ${{ secrets.GPG_PRIVATE_KEYNAME }}
-          GPG_PASSPHRASE: ${{ secrets.GPG_PRIVATE_KEY_PASSPHRASE }}
-
-      - name: Release with Maven
-        if: ${{ contains(github.ref, 'refs/heads/release') }}
-        run: mvn --batch-mode --settings .github/maven_settings.xml release:perform -DreleaseVersion=${{ env.BRANCH_NAME }} -Dskin.version=${{ env.BRANCH_NAME }} -Dgoals=clean,jacoco:prepare-agent,deploy,jacoco:report,spotbugs:spotbugs,pmd:pmd,pmd:cpd,org.sonarsource.scanner.maven:sonar-maven-plugin:sonar,site,site:stage,scm-publish:publish-scm
-        env:
-          GITHUB_USER: ${{ secrets.SCM_USER }}
-          GITHUB_TOKEN: ${{ secrets.SCM_TOKEN }}
-          GPG_KEY_ID: ${{ secrets.GPG_PRIVATE_KEYNAME }}
-          GPG_PASSPHRASE: ${{ secrets.GPG_PRIVATE_KEY_PASSPHRASE }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
-      - name: Create pull request into main
-        uses: repo-sync/pull-request@v2
-        with:
-          source_branch: release/${{ env.BRANCH_NAME }}
-          destination_branch: "main"
-          github_token: ${{ secrets.SCM_TOKEN }}
-          pr_title: "Merge Release back to main"
-          pr_body: "Performed successfull release, needs to be merged back into main branch"
-
-      - name: Upload Release Artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: "v${{ env.BRANCH_NAME }}"
-          path: "**/target/*${{ env.BRANCH_NAME }}*"
+  call-workflow-passing-data:
+    uses: PallasSystems/infrastructure-ci/.github/workflows/java_maven_release_on_branch.yml@main
+    secrets: inherit

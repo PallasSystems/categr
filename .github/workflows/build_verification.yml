@@ -1,101 +1,13 @@
-name: Build Verification of Maven project
+name: Build Verification of Node.JS project
 
 on:
+  push:
+    branches: [main]
   pull_request:
     types: [opened, synchronize, reopened]
   workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        version: [ 17 ]
-    steps:
-      - name: Check out Source Code
-        uses: actions/checkout@v2.5.0
-
-      - name: Set up JDK ${{ matrix.version }}
-        uses: actions/setup-java@v3
-        with:
-          cache: 'maven'
-          distribution: 'temurin'
-          java-version: ${{ matrix.version }}
-          gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
-          gpg-passphrase: ${{ secrets.GPG_PRIVATE_KEY_PASSPHRASE }}
-
-      - name: Build with Maven
-        run: mvn --batch-mode --settings .github/maven_settings.xml clean install
-        env:
-          GITHUB_USER: ${{ secrets.SCM_USER }}
-          GITHUB_TOKEN: ${{ secrets.SCM_TOKEN }}
-          GPG_KEY_ID: ${{ secrets.GPG_PRIVATE_KEYNAME }}
-          GPG_PASSPHRASE: ${{ secrets.GPG_PRIVATE_KEY_PASSPHRASE }}
-
-  analyse:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out Source Code
-        uses: actions/checkout@v2.5.0
-
-      - name: Set up JDK 17
-        uses: actions/setup-java@v3
-        with:
-          cache: 'maven'
-          distribution: 'temurin'
-          java-version: 17
-          gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
-          gpg-passphrase: ${{ secrets.GPG_PRIVATE_KEY_PASSPHRASE }}
-
-      - name: Jacoco Coverage
-        run: mvn --batch-mode --settings .github/maven_settings.xml org.jacoco:jacoco-maven-plugin:0.8.8:prepare-agent test org.jacoco:jacoco-maven-plugin:0.8.8:report install
-        env:
-          GITHUB_USER: ${{ secrets.SCM_USER }}
-          GITHUB_TOKEN: ${{ secrets.SCM_TOKEN }}
-          GPG_KEY_ID: ${{ secrets.GPG_PRIVATE_KEYNAME }}
-          GPG_PASSPHRASE: ${{ secrets.GPG_PRIVATE_KEY_PASSPHRASE }}
-
-      - name: Checkstyle
-        run: mvn --batch-mode --settings .github/maven_settings.xml org.apache.maven.plugins:maven-checkstyle-plugin:3.3.0:checkstyle-aggregate
-        env:
-          GITHUB_USER: ${{ secrets.SCM_USER }}
-          GITHUB_TOKEN: ${{ secrets.SCM_TOKEN }}
-          GPG_KEY_ID: ${{ secrets.GPG_PRIVATE_KEYNAME }}
-          GPG_PASSPHRASE: ${{ secrets.GPG_PRIVATE_KEY_PASSPHRASE }}
-
-      - name: Checkstyle Annotation
-        uses: jwgmeligmeyling/checkstyle-github-action@master
-        with:
-          path: '**/checkstyle-result.xml'
-
-      - name: SpotBugs
-        run: mvn --batch-mode --settings .github/maven_settings.xml com.github.spotbugs:spotbugs-maven-plugin:4.6.0.0:spotbugs -Dspotbugs.xmlOutput=true -Dspotbugs.effort=max -Dspotbugs.failOnError=false -Dspotbugs.threshold=low
-        env:
-          GITHUB_USER: ${{ secrets.SCM_USER }}
-          GITHUB_TOKEN: ${{ secrets.SCM_TOKEN }}
-          GPG_KEY_ID: ${{ secrets.GPG_PRIVATE_KEYNAME }}
-          GPG_PASSPHRASE: ${{ secrets.GPG_PRIVATE_KEY_PASSPHRASE }}
-
-      - name: SpotBugs Annotation
-        uses: jwgmeligmeyling/spotbugs-github-action@master
-        with:
-          path: '**/spotbugsXml.xml'
-
-      - name: PMD
-        run: mvn --batch-mode --settings .github/maven_settings.xml --file pom.xml pmd:pmd pmd:cpd
-        env:
-          GITHUB_USER: ${{ secrets.SCM_USER }}
-          GITHUB_TOKEN: ${{ secrets.SCM_TOKEN }}
-
-      - name: PMD Annotation
-        uses: jwgmeligmeyling/pmd-github-action@master
-        with:
-          path: '**/pmd.xml'
-
-      - name: SonarCloud Analysis
-        # Fixed version of the plugin as the newer one has a Java 11 dependency.
-        run: mvn --batch-mode --settings .github/maven_settings.xml --file pom.xml org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
-        env:
-          GITHUB_USER: ${{ secrets.SCM_USER }}
-          GITHUB_TOKEN: ${{ secrets.SCM_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  call-workflow-passing-data:
+    uses: PallasSystems/infrastructure-ci/.github/workflows/java_maven_build_verification.yml@main
+    secrets: inherit
